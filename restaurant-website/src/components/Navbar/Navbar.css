@@ -503,6 +503,73 @@
 
 }
 
+/* SMALL MOBILE (480px) */
+@media (max-width: 480px){
+  .navbar{
+    padding: 12px 10px;
+    gap: 12px;
+  }
+
+  .logo{
+    font-size: 24px;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-left{
+    gap: 10px;
+  }
+
+  .location{
+    min-width: 0;
+    padding: 6px 10px;
+  }
+
+  .location-text h3{
+    font-size: 11px;
+  }
+
+  .location-text p{
+    max-width: 70px;
+    font-size: 11px;
+  }
+
+  .nav-search input{
+    height: 44px;
+    font-size: 14px;
+  }
+
+  .nav-btn,
+  .cart-btn{
+    padding: 9px 12px;
+    font-size: 13px;
+  }
+}
+
+/* EXTRA SMALL (320px) */
+@media (max-width: 320px){
+  .logo{
+    font-size: 20px;
+  }
+
+  .nav-right{
+    gap: 6px;
+  }
+
+  .nav-btn,
+  .cart-btn{
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .location{
+    padding: 6px 8px;
+  }
+
+  .location-text p{
+    max-width: 55px;
+  }
+}
+
 /* USER NAME */
 
 .user-name{
@@ -532,23 +599,14 @@
 
 .logout-btn{
   border: none;
-
   background: #ef4444;
-
   color: white;
-
   padding: 12px 18px;
-
   border-radius: 14px;
-
   cursor: pointer;
-
   font-size: 15px;
-
   font-weight: 600;
-
   transition: 0.3s;
-
   white-space: nowrap;
 }
 

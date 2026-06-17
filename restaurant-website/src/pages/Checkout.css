@@ -30,6 +30,7 @@
 
 .checkout-left form{
   display: flex;
+
   flex-direction: column;
 
   gap: 20px;
@@ -114,6 +115,7 @@
   border: none;
 
   background-color: #0f8a2d;
+
   color: white;
 
   border-radius: 8px;
@@ -125,5 +127,97 @@
 
 .checkout-right button:disabled{
   background-color: #cccccc;
+
   cursor: not-allowed;
 }
+
+/* =============================
+   RESPONSIVE BREAKPOINTS
+   320 / 480 / 768 / 1024 / 1440
+   ============================= */
+
+@media (max-width: 1024px){
+  .checkout{
+    gap: 25px;
+    padding: 35px;
+  }
+
+  .checkout-left,
+  .checkout-right{
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px){
+  .checkout{
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px 15px;
+  }
+
+  .checkout-left,
+  .checkout-right{
+    padding: 20px;
+  }
+
+  .payment{
+    margin-top: 25px;
+  }
+
+  .summary-item{
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+  }
+
+  .total{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px){
+  .checkout{
+    padding: 18px 10px;
+  }
+
+  .checkout-left h2,
+  .checkout-right h2{
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+  }
+
+  .checkout-left input,
+  .checkout-left textarea{
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .checkout-left textarea{
+    height: 105px;
+  }
+
+  .payment label{
+    font-size: 15px;
+  }
+
+  .checkout-right button{
+    padding: 14px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 320px){
+  .checkout{
+    padding: 14px 8px;
+  }
+
+  .checkout-left,
+  .checkout-right{
+    padding: 16px;
+  }
+
+  .checkout-right button{
+    font-size: 15px;
+  }
+}
+
