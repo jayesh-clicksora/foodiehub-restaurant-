@@ -5,22 +5,14 @@ import Categories from "../components/Categories/Categories";
 import BestSeller from "../components/BestSeller/BestSeller";
 import Promo from "../components/Promo/Promo";
 
-function Home({
-  wishlist,
-  toggleWishlist,
-  addToCart,
-  searchQuery,
-}) {
-  const [selectedCategory, setSelectedCategory] =
-    useState("");
+function Home({ wishlist, toggleWishlist, addToCart, searchQuery }) {
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   return (
     <div>
       <Hero />
 
-      <Categories
-        onSelectCategory={setSelectedCategory}
-      />
+      <Categories onSelectCategory={setSelectedCategory} />
 
       <BestSeller
         wishlist={wishlist}
