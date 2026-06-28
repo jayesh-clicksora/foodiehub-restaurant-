@@ -19,66 +19,49 @@ dotenv.config();
 const app = express();
 
 /* =========================
-   MIDDLEWARE
+   MIDDLEWARE & CORS
 ========================= */
-app.use(cors());
+// Live domain par CORS error na aaye, isliye methods aur credentials allow kiya hai
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  }),
+);
 
 app.use(
   express.json({
     limit: "10mb",
-  })
+  }),
 );
 
 app.use(
   express.urlencoded({
     extended: true,
-  })
+  }),
 );
 
 /* =========================
    DATABASE CHECK
+   (Note: Db connection pool is already handled in config/db.js)
 ========================= */
-db.connect((err) => {
-  if (err) {
-    console.log("❌ MySQL Connection Failed");
-    console.log(err);
-  } else {
-    console.log("✅ MySQL Connected");
-  }
-});
 
 /* =========================
    ROUTES
 ========================= */
-
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productsRoutes);
-
 app.use("/api/cart", cartRoutes);
-
 app.use("/api/orders", orderRoutes);
-
-app.use(
-  "/api/wishlist",
-  wishlistRoutes
-);
-
+app.use("/api/wishlist", wishlistRoutes);
 app.use("/api/foods", foodRoutes);
-
-app.use(
-  "/api/admin",
-  adminRoutes
-);
-
-app.use(
-  "/api/payment",
-  paymentRoutes
-);
+app.use("/api/admin", adminRoutes);
+app.use("/api/payment", paymentRoutes);
 
 /* =========================
    TEST ROUTES
 ========================= */
-
 app.get("/", (req, res) => {
   res.send("🚀 FoodieHub API Running");
 });
@@ -93,7 +76,6 @@ app.get("/api", (req, res) => {
 /* =========================
    404 ROUTE
 ========================= */
-
 app.use((req, res) => {
   res.status(404).json({
     success: false,
@@ -104,12 +86,8 @@ app.use((req, res) => {
 /* =========================
    SERVER
 ========================= */
-
-const PORT =
-  process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(
-    `🚀 Server Running On Port ${PORT}`
-  );
+  console.log(`🚀 Server Running On Port ${PORT}`);
 });
